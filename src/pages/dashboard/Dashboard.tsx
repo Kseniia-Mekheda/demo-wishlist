@@ -5,7 +5,8 @@ import useAppContext from "~/hooks/useAppContext";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import WishForm from "~/components/WishForm/WishForm"; 
 import WishFilters from "~/components/WishFilters/WishFilters";
-import { DEFAULT_FILTERS } from "~/constants/const";
+import Pagination from "~/components/Pagination/Pagination";
+import { DEFAULT_FILTERS, PAGINATION } from "~/constants/const";
 import { styles } from "~/constants/styles";
 
 const Dashboard = () => {
@@ -15,16 +16,19 @@ const Dashboard = () => {
 
   const dateFilter = searchParams.get("date") || DEFAULT_FILTERS.date;
   const priceFilter = searchParams.get("price") || DEFAULT_FILTERS.price;
-  const { wishes, loading, error, fetchWishes } = useAppContext();
+  const currentPage =
+    Number(searchParams.get("page")) || PAGINATION.defaultPage;
+  const { wishes, loading, totalPages, error, fetchWishes } = useAppContext();
   
 	useEffect(() => {
-    fetchWishes(dateFilter, priceFilter);
+    fetchWishes(dateFilter, priceFilter, currentPage);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dateFilter, priceFilter]);
+  }, [dateFilter, priceFilter, currentPage]);
 
   const handleDateFilterChange = (value: string) => {
     setSearchParams((prev) => {
       prev.set("date", value);
+      prev.set("page", "1");
       return prev;
     });
   };
@@ -32,6 +36,14 @@ const Dashboard = () => {
   const handlePriceFilterChange = (value: string) => {
     setSearchParams((prev) => {
       prev.set("price", value);
+      prev.set("page", "1");
+      return prev;
+    });
+  };
+
+  const handlePageChange = (page: number) => {
+    setSearchParams((prev) => {
+      prev.set("page", String(page));
       return prev;
     });
   };
@@ -100,11 +112,22 @@ const Dashboard = () => {
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {wishes.map((wish) => (
-            <WishCard key={wish.id} wish={wish} onDetails={handleViewDetails} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {wishes.map((wish) => (
+              <WishCard
+                key={wish.id}
+                wish={wish}
+                onDetails={handleViewDetails}
+              />
+            ))}
+          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </>
       )}
       {isAddModalOpen && <WishForm onClose={() => setIsAddModalOpen(false)} />}
     </main>

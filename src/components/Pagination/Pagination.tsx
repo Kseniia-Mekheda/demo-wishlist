@@ -11,7 +11,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="p-2 rounded-lg border border-gray-300 hover:border-[#1C1E87] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-gray-300"
+        className="p-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-gray-300"
       >
         <ChevronLeftIcon className="w-5 h-5" />
       </button>
@@ -20,10 +20,10 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
         <button
           key={page}
           onClick={() => onPageChange(page)}
-          className={`w-10 h-10 rounded-lg text-sm font-medium transition-colors
+          className={`w-10 h-10 rounded-3xl text-sm font-medium transition-colors
             ${page === currentPage 
-              ? "bg-[#1C1E87] text-white" 
-              : "border border-gray-300 hover:border-[#1C1E87] hover:text-[#1C1E87]"
+              ? "bg-[#D4D4FA] border" 
+              : "border bg-slate-50"
             }`}
         >
           {page}
@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }: PaginationProps) 
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="p-2 rounded-lg border border-gray-300 hover:border-[#1C1E87] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-gray-300"
+        className="p-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-gray-300"
       >
         <ChevronRightIcon className="w-5 h-5" />
       </button>

@@ -4,26 +4,37 @@ import URLs from '~/constants/routes';
 import Snackbar from '~/components/Snackbar/Snackbar';
 import type { Wish, NotificationInterface } from '~/types/common/interfaces';
 import type { AppContextInterface } from '~/types/context/app-context-interface';
-import { DEFAULT_FILTERS } from "~/constants/const";
+import { DEFAULT_FILTERS, PAGINATION } from "~/constants/const";
 
 const AppContext = createContext<AppContextInterface | null>(null); 
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [wishes, setWishes] = useState<Wish[]>([]); 
   const [currentWish, setCurrentWish] = useState<Wish | null>(null);
+  const [totalPages, setTotalPages] = useState(1);
   const { request, loading, error, resetError } = useApi();
   const [notification, setNotification] = useState<NotificationInterface | null>(null);
 
   const fetchWishes = async (
     dateFilter = DEFAULT_FILTERS.date,
-    priceFilter = DEFAULT_FILTERS.price
+    priceFilter = DEFAULT_FILTERS.price,
+    page = PAGINATION.defaultPage
   ) => {
     try {
       const sortParams = buildSortParams(dateFilter, priceFilter);
-      const url = `${URLs.api.wishes}?${sortParams}`;
+      const url = `${URLs.api.wishes}?${sortParams}&_page=${page}&_per_page=${PAGINATION.itemsPerPage}`;
       console.log("Fetching URL:", url);
-      const data = await request<Wish[]>(url, "GET");
-      setWishes(data);
+      const response = await request<{
+        data: Wish[];
+        pages: number;
+        first: number;
+        last: number;
+        prev: number | null;
+        next: number | null;
+        items: number;
+      }>(url, "GET");
+      setWishes(response.data);
+      setTotalPages(response.pages);
     } catch (e) {
       const errorMsg = e instanceof Error ? e.message : "Unknown error";
       setNotification({ message: errorMsg, type: "error" });
@@ -83,6 +94,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
       value={{
         wishes,
         currentWish,
+        totalPages,
         loading,
         error,
         fetchWishes,

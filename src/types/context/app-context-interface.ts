@@ -6,7 +6,7 @@ export interface AppContextInterface {
   totalPages: number,
   error: string | null, 
   loading: boolean, 
-  fetchWishes: (dateFilter?: string, priceFilter?: string) => Promise<void>,
+  fetchWishes: (dateFilter?: string, priceFilter?: string, page?: number) => Promise<void>,
   fetchWishById: (id: string) => Promise<Wish | null>,
   addWish: (wish: Omit<Wish, 'id'>) => Promise<void>,
   updateWish: (id: string, updatedWish: Partial<Omit<Wish, 'id'>>) => Promise<void>, 

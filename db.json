@@ -3,43 +3,147 @@
     {
       "id": "a9f1",
       "imageUrl": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/27000/27764-Moraine-Lake.jpg",
-      "title": "Visit Canada ",
-      "description": "Go to Canada to explore it's amazing nature and look at all the relaxing landscapes",
+      "title": "Visit Canada",
+      "description": "Go to Canada to explore its amazing nature and look at all the relaxing landscapes",
       "price": 1110,
-      "dateAdded": "2025-12-18T15:28:54.619Z"
+      "dateAdded": "2025-12-01T10:00:00.000Z"
     },
     {
       "id": "8ad0",
-      "imageUrl": "https://res.cloudinary.com/dtljonz0f/image/upload/c_auto,ar_4:3,w_3840,g_auto/f_auto/q_auto/v1/shutterstock_329662223_ss_non-editorial_3_csm8lw?_a=BAVAZGGf0",
+      "imageUrl": "https://res.cloudinary.com/dtljonz0f/image/upload/c_auto,ar_4:3,w_3840,g_auto/f_auto/q_auto/v1/shutterstock_329662223_ss_non-editorial_3_csm8lw",
       "title": "Visit USA (New York)",
-      "description": "New Yoooooork",
+      "description": "Experience the Big Apple - Times Square, Central Park, and Broadway shows",
       "price": 2000,
-      "dateAdded": "2025-12-18T15:58:55.103Z"
+      "dateAdded": "2025-12-02T11:30:00.000Z"
     },
     {
-      "id": "3d38",
-      "imageUrl": "",
-      "title": "One",
-      "description": "",
-      "price": 10000000,
-      "dateAdded": "2025-12-18T17:04:56.943Z"
+      "id": "b3c2",
+      "imageUrl": "https://images.unsplash.com/photo-1503917988258-f87a78e3c995?w=800",
+      "title": "Trip to Paris",
+      "description": "Visit the Eiffel Tower, Louvre Museum, and enjoy French cuisine",
+      "price": 1800,
+      "dateAdded": "2025-12-03T09:15:00.000Z"
     },
     {
-      "id": "3d40",
-      "imageUrl": "",
-      "title": "Three",
-      "description": "",
-      "price": 1000,
-      "dateAdded": "2025-12-18T17:04:56.943Z",
-      "lastUpdated": "2025-12-18T19:32:46.401Z"
+      "id": "d4e5",
+      "imageUrl": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800",
+      "title": "Tokyo Adventure",
+      "description": "Explore Japanese culture, visit temples, and try authentic ramen",
+      "price": 2500,
+      "dateAdded": "2025-12-04T14:20:00.000Z"
     },
     {
-      "id": "61db",
-      "imageUrl": "",
-      "title": "helllo",
-      "description": "",
-      "price": 1110,
-      "dateAdded": "2025-12-18T19:33:21.691Z"
+      "id": "f6g7",
+      "imageUrl": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800",
+      "title": "London Trip",
+      "description": "See Big Ben, Buckingham Palace, and explore British museums",
+      "price": 1650,
+      "dateAdded": "2025-12-05T08:45:00.000Z",
+      "lastUpdated": "2025-12-18T20:31:26.604Z"
+    },
+    {
+      "id": "h8i9",
+      "imageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
+      "title": "Dubai Luxury Vacation",
+      "description": "Experience luxury hotels, desert safari, and Burj Khalifa",
+      "price": 3200,
+      "dateAdded": "2025-12-06T16:00:00.000Z"
+    },
+    {
+      "id": "j1k2",
+      "imageUrl": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=800",
+      "title": "Sydney Australia",
+      "description": "Visit the Opera House, Bondi Beach, and explore the outback",
+      "price": 2800,
+      "dateAdded": "2025-12-07T12:30:00.000Z"
+    },
+    {
+      "id": "l3m4",
+      "imageUrl": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800",
+      "title": "Rome Italy",
+      "description": "Explore the Colosseum, Vatican City, and eat authentic pasta",
+      "price": 1400,
+      "dateAdded": "2025-12-08T10:15:00.000Z"
+    },
+    {
+      "id": "p7q8",
+      "imageUrl": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800",
+      "title": "Apple Watch Ultra",
+      "description": "Advanced smartwatch for fitness tracking and outdoor adventures",
+      "price": 799,
+      "dateAdded": "2025-12-10T09:00:00.000Z"
+    },
+    {
+      "id": "r9s0",
+      "imageUrl": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=800",
+      "title": "Sony PlayStation 5",
+      "description": "Next-gen gaming console with amazing graphics",
+      "price": 499,
+      "dateAdded": "2025-12-11T18:20:00.000Z"
+    },
+    {
+      "id": "t1u2",
+      "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
+      "title": "Premium Headphones",
+      "description": "Sony WH-1000XM5 noise cancelling headphones",
+      "price": 350,
+      "dateAdded": "2025-12-12T11:10:00.000Z"
+    },
+    {
+      "id": "v3w4",
+      "imageUrl": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800",
+      "title": "Book Collection",
+      "description": "Complete works of classic literature for my home library",
+      "price": 250,
+      "dateAdded": "2025-12-13T14:00:00.000Z"
+    },
+    {
+      "id": "x5y6",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800",
+      "title": "Gym Membership",
+      "description": "Annual premium gym membership with personal trainer",
+      "price": 600,
+      "dateAdded": "2025-12-14T07:30:00.000Z"
+    },
+    {
+      "id": "z7a8",
+      "imageUrl": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800",
+      "title": "Nike Air Max",
+      "description": "Limited edition sneakers for everyday comfort",
+      "price": 180,
+      "dateAdded": "2025-12-15T13:45:00.000Z"
+    },
+    {
+      "id": "d1e2",
+      "imageUrl": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800",
+      "title": "Electric Bike",
+      "description": "Eco-friendly transportation for city commuting",
+      "price": 1500,
+      "dateAdded": "2025-12-17T08:00:00.000Z"
+    },
+    {
+      "id": "f3g4",
+      "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+      "title": "Standing Desk",
+      "description": "Ergonomic height-adjustable desk for home office",
+      "price": 450,
+      "dateAdded": "2025-12-17T08:00:00.000Z"
+    },
+    {
+      "id": "h5i6",
+      "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+      "title": "Mechanical Keyboard",
+      "description": "Custom mechanical keyboard with RGB lighting",
+      "price": 200,
+      "dateAdded": "2025-12-18T09:30:00.000Z"
+    },
+    {
+      "id": "j7k8",
+      "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+      "title": "Cooking Masterclass",
+      "description": "Online course from Gordon Ramsay to improve cooking skills",
+      "price": 90,
+      "dateAdded": "2025-12-18T12:00:00.000Z"
     }
   ]
 }
