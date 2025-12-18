@@ -7,10 +7,46 @@ export interface Wish{
   description?: string,
   price: number, 
   dateAdded: Date,
+  lastUpdated?: Date,
 };
 
 export interface NotificationInterface {
-  message: string;
-  type: notificationType;
-  onClose?: () => void;
+  message: string,
+  type: notificationType,
+  onClose?: () => void,
 };
+
+export interface WishCardProps {
+  wish: Wish, 
+  onDetails: (id: string) => void,
+};
+
+export interface WishFormProps {
+  onClose: () => void,
+  selectedWish?: Wish,
+}
+
+export interface FilterOption {
+  label: string, 
+  value: string,
+}
+
+export interface SelectFilterProps {
+  label: string, 
+  value: string, 
+  options: FilterOption[], 
+  onChange: (value: string) => void,
+}
+
+export interface WishFilterProps {
+  dateFilter: string, 
+  priceFilter: string, 
+  onDateFilterChange: (value: string) => void,
+  onPriceFilterChange: (value: string) => void,
+} 
+
+export interface WishActionsProps {
+  wish: Wish,
+  variant?: "card" | "page",
+  onAfterDelete?: () => void,
+}

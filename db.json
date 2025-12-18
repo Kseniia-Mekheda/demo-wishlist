@@ -1,13 +1,12 @@
 {
-	"wishes": [
-		{ 
-			"id": 1,
-			"name": "New Laptop",
-			"description": "A high-performance laptop for work and gaming.",
-			"priority": "High",
-			"purchased": false,
-			"dateAdded": "2024-06-01",
-			"price": 1500.00		
-		}
-	]
+  "wishes": [
+    {
+      "id": "a9f1",
+      "imageUrl": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/27000/27764-Moraine-Lake.jpg",
+      "title": "Visit Canada ",
+      "description": "Go to Canada to explore it's amazing nature and look at all the relaxing landscapes",
+      "price": 1110,
+      "dateAdded": "2025-12-18T15:28:54.619Z"
+    }
+  ]
 }

@@ -37,7 +37,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const updateWish = async (id: string, updatedWish: Partial<Omit<Wish, 'id'>>) => {
     resetError();
     try {
-      const editedWish = await request<Wish>(`${URLs.api.wishes}/${id}`, 'POST', updatedWish); 
+      const editedWish = await request<Wish>(`${URLs.api.wishes}/${id}`, 'PATCH', updatedWish); 
       setWishes(prev => prev.map(wish => wish.id === id ? editedWish : wish)); 
       setNotification({ message: 'Wish updated successfully', type: 'success' });
     } catch (e) {
@@ -60,7 +60,6 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <AppContext.Provider value={{ wishes, loading, error, fetchWishes, addWish, updateWish, deleteWish }}>
-      { children }
       {notification && (
         <Snackbar
           message={notification.message}
@@ -68,6 +67,7 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
           onClose={() => setNotification(null)}
         />
       )}
+      { children }
     </AppContext.Provider>
   )
 };
