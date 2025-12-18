@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useAppContext from "~/hooks/useAppContext";
 import type { WishFormProps } from "~/types/common/interfaces";
 import { IMAGE_PLACEHOLDER } from "~/constants/const";
+import { styles } from "~/constants/styles";
 
 const WishForm = ({ onClose, selectedWish }: WishFormProps) => {
   const isEditMode = Boolean(selectedWish);
@@ -51,8 +52,8 @@ const WishForm = ({ onClose, selectedWish }: WishFormProps) => {
   return (
     <div className="relative z-10">
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-4xl">
-          <h2 className="text-2xl font-bold mb-4">
+        <div className={`${styles.card} shadow-lg p-6 w-full max-w-4xl`}>
+          <h2 className={`text-2xl mb-4 text-center ${styles.header}`}>
             {isEditMode ? "Edit Wish" : "Add New Wish"}
           </h2>
           <div className="grid md:grid-cols-2">
@@ -68,73 +69,61 @@ const WishForm = ({ onClose, selectedWish }: WishFormProps) => {
             </div>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Wish Title *
-                </label>
+                <label className="block text-md mb-1">Wish Title *</label>
                 <input
                   type="text"
                   name="title"
                   value={formData.title}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-2"
-                  placeholder="Enter wish title"
+                  className={styles.textInput}
                   required
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Image URL
-                </label>
+                <label className="block text-md mb-1">Image URL</label>
                 <input
                   type="url"
                   name="imageUrl"
                   value={formData.imageUrl}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-2"
-                  placeholder="https://example.com/image.jpg"
+                  className={styles.textInput}
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Price *
-                </label>
+                <label className="block text-md mb-1">Price *</label>
                 <input
                   type="number"
                   name="price"
                   value={formData.price}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-2"
-                  placeholder="0"
+                  className={styles.textInput}
                   min="0"
-                  step="0.01"
+                  step="1"
                   required
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Description
-                </label>
+                <label className="block text-md mb-1">Description</label>
                 <textarea
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="w-full border border-gray-300 rounded-md p-2"
-                  placeholder="Enter wish description"
+                  className={styles.textInput}
                   rows={3}
                 ></textarea>
               </div>
-              <div className="flex justify-end gap-2">
+              <div className="flex gap-4 w-full">
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
+                  className={styles.cancelButton}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className={`${styles.ctaButton} w-full`}
                 >
                   {loading
                     ? "Saving..."

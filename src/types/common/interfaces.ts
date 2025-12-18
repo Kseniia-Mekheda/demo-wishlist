@@ -23,6 +23,7 @@ export interface WishCardProps {
 
 export interface WishFormProps {
   onClose: () => void,
+  onAfterDelete?: () => void,
   selectedWish?: Wish,
 }
 
@@ -49,4 +50,10 @@ export interface WishActionsProps {
   wish: Wish,
   variant?: "card" | "page",
   onAfterDelete?: () => void,
+}
+
+export interface PaginationProps {
+  currentPage: number,
+  totalPages: number,
+  onPageChange: (page: number) => void,
 }

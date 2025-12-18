@@ -11,7 +11,7 @@ const WishCard = ({ wish, onDetails }: WishCardProps) => {
         <img
           src={imageUrl || IMAGE_PLACEHOLDER}
           alt={title}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover border"
           onError={(e) => {
             (e.target as HTMLImageElement).src = IMAGE_PLACEHOLDER;
           }}

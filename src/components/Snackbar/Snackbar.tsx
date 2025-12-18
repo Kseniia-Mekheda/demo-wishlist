@@ -10,9 +10,9 @@ const Snackbar = ({ message, type, onClose }: NotificationInterface) => {
 			),
 		},
 		'error': {
-			card: "bg-red-950/95 border-red-800 text-red-100",
+			card: "bg-red-500/40 border-red-400 text-red-800",
 			icon: (
-				<XCircleIcon className="size-6 text-red-400" />
+				<XCircleIcon className="size-6 text-red-600" />
 			)
 		}
 	}
@@ -37,7 +37,7 @@ const Snackbar = ({ message, type, onClose }: NotificationInterface) => {
 					className={`ms-auto -mx-1.5 -my-1.5 rounded-lg p-1.5 inline-flex items-center justify-center h-8 w-8`}
 					aria-label="Close"
 				>
-					<XMarkIcon className={`size-5 text-${type === 'error' ? 'red-400' : 'emerald-400'}`} />
+					<XMarkIcon className={`size-5 text-${type === 'error' ? 'red-600' : 'emerald-400'}`} />
 				</button>
 			)}
 		</div>

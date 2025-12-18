@@ -1,27 +1,40 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import WishCard from "~/components/WishCard/WishCard";
 import useAppContext from "~/hooks/useAppContext";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import WishForm from "~/components/WishForm/WishForm"; 
-import DeleteWishForm from "~/components/DeleteWishForm/DeleteWishForm";
-import type { Wish } from "~/types/common/interfaces";
 import WishFilters from "~/components/WishFilters/WishFilters";
+import { DEFAULT_FILTERS } from "~/constants/const";
+import { styles } from "~/constants/styles";
 
 const Dashboard = () => {
   const navigate = useNavigate();
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
-  const [selectedWish, setSelectedWish] = useState<Wish | null>(null);
-  const [isEditModalOpen, setIsEditModalOpen] = useState<boolean>(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState<boolean>(false);
-  const [dateFilter, setDateFilter] = useState<string>("newest");
-  const [priceFilter, setPriceFilter] = useState<string>("highToLow");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const dateFilter = searchParams.get("date") || DEFAULT_FILTERS.date;
+  const priceFilter = searchParams.get("price") || DEFAULT_FILTERS.price;
   const { wishes, loading, error, fetchWishes } = useAppContext();
   
 	useEffect(() => {
-    fetchWishes();
+    fetchWishes(dateFilter, priceFilter);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dateFilter, priceFilter]);
+
+  const handleDateFilterChange = (value: string) => {
+    setSearchParams((prev) => {
+      prev.set("date", value);
+      return prev;
+    });
+  };
+
+  const handlePriceFilterChange = (value: string) => {
+    setSearchParams((prev) => {
+      prev.set("price", value);
+      return prev;
+    });
+  };
 
   const handleAddWish = () => {
     setIsAddModalOpen(true);
@@ -35,7 +48,7 @@ const Dashboard = () => {
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-bold text-[#1C1E87] tracking-tight">
+          <h1 className={`text-3xl sm:text-4xl ${styles.header}`}>
             Welcome to your WishList!
           </h1>
           <p className="mt-2 text-lg">
@@ -45,7 +58,7 @@ const Dashboard = () => {
 
         <button
           onClick={handleAddWish}
-          className="inline-flex items-center gap-2 bg-[#D4D4FA] border-t border-l border-r border-black border-b-4 text-black text-sm px-5 py-3 rounded-3xl hover:bg-[#1C1E87] hover:text-white hover:border-none transition-all active:scale-95 shrink-0"
+          className={`inline-flex items-center gap-2 px-5 py-3 ${styles.ctaButton} shrink-0`}
         >
           <PlusIcon className="w-4 h-4" />
           Add new wish
@@ -56,8 +69,8 @@ const Dashboard = () => {
         <WishFilters
           dateFilter={dateFilter}
           priceFilter={priceFilter}
-          onDateFilterChange={setDateFilter}
-          onPriceFilterChange={setPriceFilter}
+          onDateFilterChange={handleDateFilterChange}
+          onPriceFilterChange={handlePriceFilterChange}
         />
       </div>
 
@@ -70,7 +83,7 @@ const Dashboard = () => {
           Error loading wishes: {error}
         </div>
       ) : wishes.length === 0 ? (
-        <div className="text-center py-20 bg-white rounded-3xl border border-t border-l border-r border-black border-b-4">
+        <div className={`text-center py-20 ${styles.card}`}>
           <div className="mx-auto h-12 w-12 mb-4">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -94,24 +107,6 @@ const Dashboard = () => {
         </div>
       )}
       {isAddModalOpen && <WishForm onClose={() => setIsAddModalOpen(false)} />}
-      {isEditModalOpen && selectedWish && (
-        <WishForm
-          selectedWish={selectedWish}
-          onClose={() => {
-            setIsEditModalOpen(false);
-            setSelectedWish(null);
-          }}
-        />
-      )}
-      {isDeleteModalOpen && selectedWish && (
-        <DeleteWishForm
-          onClose={() => {
-            setIsDeleteModalOpen(false);
-            setSelectedWish(null);
-          }}
-          selectedWish={selectedWish}
-        />
-      )}
     </main>
   );
 }

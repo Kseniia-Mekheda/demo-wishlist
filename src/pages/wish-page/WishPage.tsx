@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { IMAGE_PLACEHOLDER } from "~/constants/const";
 import useAppContext from "~/hooks/useAppContext";
@@ -7,18 +8,35 @@ import { Link } from "react-router-dom";
 const WishPage = () => {
 	const navigate = useNavigate();
 	const { id } = useParams<{ id: string }>();
-	const { wishes } = useAppContext();
-	const wish = wishes.find((wish) => wish.id === id);
+	const { currentWish, loading, error, fetchWishById } = useAppContext();
+	
+  useEffect(() => {
+    if (id) {
+      fetchWishById(id);
+    }
+  }, [id]);
 
-	if (!wish) {
+	if (loading) {
+    return (
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <p className="text-center text-slate-500">Loading...</p>
+      </main>
+    );
+  }
+
+  if (error) {
+    navigate('/404');
+  }
+
+  if (!currentWish) {
     return (
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <p className="text-center text-slate-500">Wish not found</p>
       </main>
     );
-	} 
+  }
 
-	const { imageUrl, title, description, price } = wish;
+	const { imageUrl, title, description, price } = currentWish;
 
 	return (
     <main className="min-h-screen flex flex-col">
@@ -39,7 +57,7 @@ const WishPage = () => {
               ${price.toFixed(2)}
             </p>
             <ActionButtons
-              wish={wish}
+              wish={currentWish}
               variant="page"
               onAfterDelete={() => navigate("/")}
             />
@@ -48,7 +66,7 @@ const WishPage = () => {
             <img
               src={imageUrl || IMAGE_PLACEHOLDER}
               alt={title}
-              className="h-full w-full object-cover aspect-square"
+              className="h-full w-full border object-cover aspect-square"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = IMAGE_PLACEHOLDER;
               }}

@@ -3,6 +3,7 @@ import WishForm from "../WishForm/WishForm";
 import DeleteWishForm from "../DeleteWishForm/DeleteWishForm";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import type { WishActionsProps } from "~/types/common/interfaces";
+import { styles } from "~/constants/styles"
 
 const ActionButtons = ({
   wish,
@@ -14,19 +15,14 @@ const ActionButtons = ({
   const isPageVariant = variant === "page";
 
   const editButtonClasses = isPageVariant
-    ? "flex w-full justify-center items-center gap-2 px-4 py-2.5 bg-[#D4D4FA] border-t border-l border-r border-black border-b-4 text-black text-md rounded-3xl active:scale-95 transition-all"
-    : "flex items-center justify-center p-2.5 rounded-3xl border text-black-500 hover:bg-[#1C1E87] hover:text-white hover:border-[#1C1E87] active:scale-95 transition-all";
+    ? styles.actionBtnPage.edit
+    : styles.actionBtnCard.edit;
 
   const deleteButtonClasses = isPageVariant
-    ? "flex w-full justify-center items-center gap-2 px-4 py-2.5 bg-red-400 border-t border-l border-r border-black border-b-4 text-black text-md rounded-3xl border-2 hover:bg-red-300 active:scale-95 transition-all"
-    : "flex items-center justify-center p-2.5 rounded-3xl border border-red text-red-500 hover:bg-red-500 hover:text-white hover:border-red-200 active:scale-95 transition-all";
-
+    ? styles.actionBtnPage.delete
+    : styles.actionBtnCard.delete;
+   
   const containerClasses = isPageVariant ? "flex gap-4 w-full" : "flex gap-2";
-
-  const handleDeleteClose = () => {
-    setIsDeleteModalOpen(false);
-    onAfterDelete?.();
-  };
 
   return (
     <>
@@ -56,7 +52,9 @@ const ActionButtons = ({
       )}
 
       {isDeleteModalOpen && (
-        <DeleteWishForm selectedWish={wish} onClose={handleDeleteClose} />
+        <DeleteWishForm selectedWish={wish} 
+        onAfterDelete={onAfterDelete} 
+        onClose={() => setIsDeleteModalOpen(false)} />
       )}
     </>
   );

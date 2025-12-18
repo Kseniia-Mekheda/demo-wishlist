@@ -21,17 +21,16 @@ const useApi = () : useApiInterface => {
     try {
       if (body) {
         body = JSON.stringify(body);
-          headers = {
-            ...headers,
-            "Content-Type": "application/json",
-          };
+        headers = {
+          ...headers,
+          "Content-Type": "application/json",
+        };
       }
 
 			const response = await fetch(url, { method, body, headers }); 
 			if (!response.ok) {
 				throw new Error(`Error: could not fetch ${url}, status: ${response.status}`);
 			}
-
 			const data = await response.json().catch(() => ({})); 
 			setLoading(false);
 			return data as T; 
@@ -42,7 +41,6 @@ const useApi = () : useApiInterface => {
 			throw e;
 		}
 	}
-	
 	return { request, loading, error, resetError}
 }
 
