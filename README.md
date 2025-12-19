@@ -12,7 +12,7 @@ A simple and functional web application for managing a wishlist, built with Reac
 ## :trophy: Features
 * **CRUD Operations:** Add, view, edit and delete wishes
 * **Responsive Design:** Optimized for various screen sizes using Tailwind CSS
-* **Filtering:** Filter wishes by date or price
+* **Filtering:** Filter wishes by date and price simultaneously
 * **Pagination:** Smooth navigation through the list of wishes
 
 ## :rocket: Getting started
