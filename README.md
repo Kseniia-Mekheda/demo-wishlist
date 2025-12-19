@@ -29,6 +29,8 @@ Make sure you have Node.js and npm installed on your machine.
 ```bash
   npm install
 ```
+3. Add server URL to the environment variables (see the .env.template for the correct naming)
+   
 **Run the project:**
 1. Start the server:
 ```bash
