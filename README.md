@@ -51,3 +51,11 @@ The application will be available at http://localhost:5173.
 * src/pages: Main application views (Dashboard, WishPage, 404)
 * src/utilities: Helper functions for formatting and query building
 * db.json: Database file for the mock backend
+
+## 🚀 Deployment
+This project is deployed using a split architecture:
+
+- **Frontend**: Hosted on [GitHub Pages](https://pages.github.com/).
+- **Backend (API)**: Hosted on [Render](https://render.com/) using `json-server`.
+
+> **Note:** The backend is hosted on a free instance of Render. It may spin down after periods of inactivity. If the data doesn't load immediately, please wait 30-60 seconds for the server to wake up.
