@@ -1,15 +1,22 @@
 import type { WishFormProps } from "~/types/common/interfaces";
 import useAppContext from "~/hooks/useAppContext";
 import { styles } from "~/constants/styles";
+import { DEFAULT_FILTERS, PAGINATION } from "~/constants/const";
+import { useSearchParams } from "react-router-dom";
 
 const DeleteModal = ({ onClose, onAfterDelete, selectedWish }: WishFormProps) => {
   const { id, title } = selectedWish || { id: '', title: '' };
+  const [searchParams] = useSearchParams();
+
+  const dateFilter = searchParams.get("date") || DEFAULT_FILTERS.date;
+  const priceFilter = searchParams.get("price") || DEFAULT_FILTERS.price;
+  const currentPage = Number(searchParams.get("page")) || PAGINATION.defaultPage;
   const { deleteWish } = useAppContext();
 
   const handleConfirmDelete = async () => {
     if (!id) return;
   
-    await deleteWish(id);
+    await deleteWish(id, dateFilter, priceFilter, currentPage);
     onClose();
     onAfterDelete?.();
   }

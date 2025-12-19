@@ -1,4 +1,9 @@
-import { Listbox } from "@headlessui/react";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption
+} from "@headlessui/react";
 import { ChevronDownIcon, CheckIcon } from "@heroicons/react/24/outline";
 import type { SelectFilterProps } from "~/types/common/interfaces";
 
@@ -16,14 +21,14 @@ const SelectFilter = ({
       <label className="text-sm font-medium">{label}</label>
       <Listbox value={value} onChange={onChange}>
         <div className="relative">
-          <Listbox.Button className="flex items-center justify-between gap-2 bg-white border rounded-xl px-4 py-2 text-sm cursor-pointer focus:outline-none min-w-35">
+          <ListboxButton className="flex items-center justify-between gap-2 bg-white border rounded-xl px-4 py-2 text-sm cursor-pointer focus:outline-none min-w-35">
             <span>{selectedOption?.label}</span>
             <ChevronDownIcon className="w-4 h-4" />
-          </Listbox.Button>
+          </ListboxButton>
 
-          <Listbox.Options className="absolute z-50 mt-1 w-full bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden focus:outline-none">
+          <ListboxOptions className="absolute z-50 mt-1 w-full bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden focus:outline-none">
             {options.map((option) => (
-              <Listbox.Option
+              <ListboxOption
                 key={option.value}
                 value={option.value}
                 className={({ active, selected }) =>
@@ -40,9 +45,9 @@ const SelectFilter = ({
                     )}
                   </>
                 )}
-              </Listbox.Option>
+              </ListboxOption>
             ))}
-          </Listbox.Options>
+          </ListboxOptions>
         </div>
       </Listbox>
     </div>

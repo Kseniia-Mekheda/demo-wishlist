@@ -14,6 +14,7 @@ const WishPage = () => {
     if (id) {
       fetchWishById(id);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
 	if (loading) {
@@ -29,11 +30,8 @@ const WishPage = () => {
   }
 
   if (!currentWish) {
-    return (
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <p className="text-center text-slate-500">Wish not found</p>
-      </main>
-    );
+    navigate("/404");
+    return null;
   }
 
 	const { imageUrl, title, description, price } = currentWish;

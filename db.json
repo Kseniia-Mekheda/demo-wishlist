@@ -6,7 +6,7 @@
       "title": "Visit Canada",
       "description": "Go to Canada to explore its amazing nature and look at all the relaxing landscapes",
       "price": 1110,
-      "dateAdded": "2025-12-01T10:00:00.000Z"
+      "dateAdded": "2025-11-01"
     },
     {
       "id": "8ad0",
@@ -14,7 +14,7 @@
       "title": "Visit USA (New York)",
       "description": "Experience the Big Apple - Times Square, Central Park, and Broadway shows",
       "price": 2000,
-      "dateAdded": "2025-12-02T11:30:00.000Z"
+      "dateAdded": "2025-11-05"
     },
     {
       "id": "b3c2",
@@ -22,7 +22,7 @@
       "title": "Trip to Paris",
       "description": "Visit the Eiffel Tower, Louvre Museum, and enjoy French cuisine",
       "price": 1800,
-      "dateAdded": "2025-12-03T09:15:00.000Z"
+      "dateAdded": "2025-11-10"
     },
     {
       "id": "d4e5",
@@ -30,7 +30,7 @@
       "title": "Tokyo Adventure",
       "description": "Explore Japanese culture, visit temples, and try authentic ramen",
       "price": 2500,
-      "dateAdded": "2025-12-04T14:20:00.000Z"
+      "dateAdded": "2025-11-12"
     },
     {
       "id": "f6g7",
@@ -38,16 +38,7 @@
       "title": "London Trip",
       "description": "See Big Ben, Buckingham Palace, and explore British museums",
       "price": 1650,
-      "dateAdded": "2025-12-05T08:45:00.000Z",
-      "lastUpdated": "2025-12-18T20:31:26.604Z"
-    },
-    {
-      "id": "h8i9",
-      "imageUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800",
-      "title": "Dubai Luxury Vacation",
-      "description": "Experience luxury hotels, desert safari, and Burj Khalifa",
-      "price": 3200,
-      "dateAdded": "2025-12-06T16:00:00.000Z"
+      "dateAdded": "2025-11-15"
     },
     {
       "id": "j1k2",
@@ -55,7 +46,7 @@
       "title": "Sydney Australia",
       "description": "Visit the Opera House, Bondi Beach, and explore the outback",
       "price": 2800,
-      "dateAdded": "2025-12-07T12:30:00.000Z"
+      "dateAdded": "2025-11-20"
     },
     {
       "id": "l3m4",
@@ -63,39 +54,7 @@
       "title": "Rome Italy",
       "description": "Explore the Colosseum, Vatican City, and eat authentic pasta",
       "price": 1400,
-      "dateAdded": "2025-12-08T10:15:00.000Z"
-    },
-    {
-      "id": "p7q8",
-      "imageUrl": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800",
-      "title": "Apple Watch Ultra",
-      "description": "Advanced smartwatch for fitness tracking and outdoor adventures",
-      "price": 799,
-      "dateAdded": "2025-12-10T09:00:00.000Z"
-    },
-    {
-      "id": "r9s0",
-      "imageUrl": "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=800",
-      "title": "Sony PlayStation 5",
-      "description": "Next-gen gaming console with amazing graphics",
-      "price": 499,
-      "dateAdded": "2025-12-11T18:20:00.000Z"
-    },
-    {
-      "id": "t1u2",
-      "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800",
-      "title": "Premium Headphones",
-      "description": "Sony WH-1000XM5 noise cancelling headphones",
-      "price": 350,
-      "dateAdded": "2025-12-12T11:10:00.000Z"
-    },
-    {
-      "id": "v3w4",
-      "imageUrl": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800",
-      "title": "Book Collection",
-      "description": "Complete works of classic literature for my home library",
-      "price": 250,
-      "dateAdded": "2025-12-13T14:00:00.000Z"
+      "dateAdded": "2025-11-22"
     },
     {
       "id": "x5y6",
@@ -103,39 +62,31 @@
       "title": "Gym Membership",
       "description": "Annual premium gym membership with personal trainer",
       "price": 600,
-      "dateAdded": "2025-12-14T07:30:00.000Z"
-    },
-    {
-      "id": "z7a8",
-      "imageUrl": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800",
-      "title": "Nike Air Max",
-      "description": "Limited edition sneakers for everyday comfort",
-      "price": 180,
-      "dateAdded": "2025-12-15T13:45:00.000Z"
+      "dateAdded": "2025-12-05"
     },
     {
       "id": "d1e2",
-      "imageUrl": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1585160442128-b2fa152f1dd1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "title": "Electric Bike",
       "description": "Eco-friendly transportation for city commuting",
       "price": 1500,
-      "dateAdded": "2025-12-17T08:00:00.000Z"
+      "dateAdded": "2025-12-08"
     },
     {
       "id": "f3g4",
-      "imageUrl": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1622126755582-16754165dce8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "title": "Standing Desk",
       "description": "Ergonomic height-adjustable desk for home office",
       "price": 450,
-      "dateAdded": "2025-12-17T08:00:00.000Z"
+      "dateAdded": "2025-12-09"
     },
     {
       "id": "h5i6",
-      "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+      "imageUrl": "https://images.unsplash.com/photo-1653786146466-9ac4d30a47f1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "title": "Mechanical Keyboard",
       "description": "Custom mechanical keyboard with RGB lighting",
       "price": 200,
-      "dateAdded": "2025-12-18T09:30:00.000Z"
+      "dateAdded": "2025-12-10"
     },
     {
       "id": "j7k8",
@@ -143,7 +94,80 @@
       "title": "Cooking Masterclass",
       "description": "Online course from Gordon Ramsay to improve cooking skills",
       "price": 90,
-      "dateAdded": "2025-12-18T12:00:00.000Z"
+      "dateAdded": "2025-12-11"
+    },
+    {
+      "id": "m1n2",
+      "imageUrl": "https://images.unsplash.com/photo-1566787265949-25a073201890?q=80&w=742&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Surfing Lessons",
+      "description": "Learn to surf in Bali with professional instructors",
+      "price": 400,
+      "dateAdded": "2025-12-13"
+    },
+    {
+      "id": "q5r6",
+      "imageUrl": "https://images.unsplash.com/photo-1607462109225-6b64ae2dd3cb?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Photography Course",
+      "description": "Master portrait and landscape photography techniques",
+      "price": 150,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "s7t8",
+      "imageUrl": "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=800",
+      "title": "Polaroid Camera",
+      "description": "Instant camera for capturing memories in retro style",
+      "price": 130,
+      "dateAdded": "2025-12-15"
+    },
+    {
+      "id": "w1x2",
+      "imageUrl": "https://images.unsplash.com/photo-1560148241-0ca187e836bd?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Pottery Classes",
+      "description": "Attend couple of pottery making workshops to create handmade ceramics",
+      "price": 650,
+      "dateAdded": "2025-12-16"
+    },
+    {
+      "id": "y3z4",
+      "imageUrl": "https://images.unsplash.com/photo-1579686801268-2cf7aa0ed5f6?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Trip to Korea",
+      "description": "Explore Seoul, visit historical sites, and enjoy Korean BBQ",
+      "price": 3000,
+      "dateAdded": "2025-12-17"
+    },
+    {
+      "id": "a5b6",
+      "imageUrl": "https://images.unsplash.com/photo-1667489023391-3dac36da98b0?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Watercolor Painting Workshop",
+      "description": "Relax and have a time of my life learning watercolor techniques",
+      "price": 320,
+      "dateAdded": "2025-12-17"
+    },
+    {
+      "id": "c7d8",
+      "imageUrl": "https://images.unsplash.com/photo-1504858700536-882c978a3464?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Trip to Lapland",
+      "description": "Experience the Northern Lights and winter activities in Lapland",
+      "price": 3000,
+      "dateAdded": "2025-12-18"
+    },
+    {
+      "id": "e9f0",
+      "imageUrl": "https://images.unsplash.com/photo-1544212415-85fec3f52087?q=80&w=1177&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Visit Christmas Markets in Austria",
+      "description": "Enjoy festive atmosphere, traditional food, and handmade crafts",
+      "price": 900,
+      "dateAdded": "2025-12-18"
+    },
+    {
+      "id": "g1h2",
+      "imageUrl": "https://images.unsplash.com/photo-1655105276712-daabc7ab4d73?q=80&w=685&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "title": "Go SUP Boarding",
+      "description": "Stand-up paddleboarding sessions in the sea with my friends",
+      "price": 1099,
+      "dateAdded": "2025-12-19",
+      "lastUpdated": "2025-12-19"
     }
   ]
 }

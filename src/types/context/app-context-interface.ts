@@ -8,7 +8,7 @@ export interface AppContextInterface {
   loading: boolean, 
   fetchWishes: (dateFilter?: string, priceFilter?: string, page?: number) => Promise<void>,
   fetchWishById: (id: string) => Promise<Wish | null>,
-  addWish: (wish: Omit<Wish, 'id'>) => Promise<void>,
+  addWish: (wish: Omit<Wish, 'id'>, dateFilter?: string, priceFilter?: string, page?: number) => Promise<void>,
   updateWish: (id: string, updatedWish: Partial<Omit<Wish, 'id'>>) => Promise<void>, 
-  deleteWish: (id: string) => Promise<void>
+  deleteWish: (id: string, dateFilter?: string, priceFilter?: string, page?: number) => Promise<void>
 }

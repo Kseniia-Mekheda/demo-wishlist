@@ -16,8 +16,7 @@ const Dashboard = () => {
 
   const dateFilter = searchParams.get("date") || DEFAULT_FILTERS.date;
   const priceFilter = searchParams.get("price") || DEFAULT_FILTERS.price;
-  const currentPage =
-    Number(searchParams.get("page")) || PAGINATION.defaultPage;
+  const currentPage = Number(searchParams.get("page")) || PAGINATION.defaultPage;
   const { wishes, loading, totalPages, error, fetchWishes } = useAppContext();
   
 	useEffect(() => {

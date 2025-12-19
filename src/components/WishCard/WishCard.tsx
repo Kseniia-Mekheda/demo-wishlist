@@ -5,6 +5,7 @@ import ActionButtons from "~/components/ActionButtons/ActionButtons";
 
 const WishCard = ({ wish, onDetails }: WishCardProps) => {
   const { id, imageUrl, title, description, price, lastUpdated } = wish; 
+  
   return (
     <div className="group w-full max-w-sm bg-slate-50 rounded-2xl p-3 transition-all duration-300 border-t border-l border-r border-black border-b-5">
       <div className="relative h-52 w-full overflow-hidden rounded-[20px]">

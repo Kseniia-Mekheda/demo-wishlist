@@ -5,6 +5,7 @@ import Snackbar from '~/components/Snackbar/Snackbar';
 import type { Wish, NotificationInterface } from '~/types/common/interfaces';
 import type { AppContextInterface } from '~/types/context/app-context-interface';
 import { DEFAULT_FILTERS, PAGINATION } from "~/constants/const";
+import { buildSortParams } from '~/utilities/build-query-params';
 
 const AppContext = createContext<AppContextInterface | null>(null); 
 
@@ -53,17 +54,22 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
   
-  const addWish = async (wish: Omit<Wish, 'id'>) => {
+  const addWish = async (
+    wish: Omit<Wish, "id">,
+    dateFilter = DEFAULT_FILTERS.date,
+    priceFilter = DEFAULT_FILTERS.price,
+    page = PAGINATION.defaultPage
+  ) => {
     resetError();
     try {
-      const newWish = await request<Wish>(URLs.api.wishes, 'POST', wish); 
-      setWishes(prev => [...prev, newWish]);
-      setNotification({ message: 'Wish added successfully', type: 'success' });
+      await request<Wish>(URLs.api.wishes, "POST", wish);
+      await fetchWishes(dateFilter, priceFilter, page);
+      setNotification({ message: "Wish added successfully", type: "success" });
     } catch (e) {
-      const errorMsg = e instanceof Error ? e.message : 'Unknown error';
-      setNotification({ message: errorMsg, type: 'error' });
+      const errorMsg = e instanceof Error ? e.message : "Unknown error";
+      setNotification({ message: errorMsg, type: "error" });
     }
-  }
+  };
 
   const updateWish = async (id: string, updatedWish: Partial<Omit<Wish, 'id'>>) => {
     resetError();
@@ -77,17 +83,25 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  const deleteWish = async (id: string) => {
+  const deleteWish = async (
+    id: string,
+    dateFilter = DEFAULT_FILTERS.date,
+    priceFilter = DEFAULT_FILTERS.price,
+    page = PAGINATION.defaultPage
+  ) => {
     resetError();
     try {
-      await request(`${URLs.api.wishes}/${id}`, 'DELETE');
-      setWishes(prev => prev.filter(wish => wish.id !== id)); 
-      setNotification({ message: 'Wish deleted successfully', type: 'success' });
+      await request(`${URLs.api.wishes}/${id}`, "DELETE");
+      await fetchWishes(dateFilter, priceFilter, page);
+      setNotification({
+        message: "Wish deleted successfully",
+        type: "success",
+      });
     } catch (e) {
-      const errorMsg = e instanceof Error ? e.message : 'Unknown error';
-      setNotification({ message: errorMsg, type: 'error' });
+      const errorMsg = e instanceof Error ? e.message : "Unknown error";
+      setNotification({ message: errorMsg, type: "error" });
     }
-  }
+  };
 
   return (
     <AppContext.Provider
@@ -114,17 +128,6 @@ const AppProvider = ({ children }: { children: React.ReactNode }) => {
       {children}
     </AppContext.Provider>
   );
-};
-
-const buildSortParams = (dateFilter: string, priceFilter: string): string => {
-  const params = new URLSearchParams();
-
-  const dateSort = dateFilter === "newest" ? "-dateAdded" : "dateAdded";
-  const priceSort = priceFilter === "highToLow" ? "-price" : "price";
-
-  params.set("_sort", `${dateSort},${priceSort}`);
-
-  return params.toString();
 };
 
 export { AppContext, AppProvider };

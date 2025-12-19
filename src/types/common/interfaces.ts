@@ -6,8 +6,8 @@ export interface Wish{
   title: string,
   description?: string,
   price: number, 
-  dateAdded: Date,
-  lastUpdated?: Date,
+  dateAdded: string,
+  lastUpdated?: string,
 };
 
 export interface NotificationInterface {

@@ -1,30 +1,26 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useAppContext from "~/hooks/useAppContext";
 import type { WishFormProps } from "~/types/common/interfaces";
-import { IMAGE_PLACEHOLDER } from "~/constants/const";
+import { DEFAULT_FILTERS, IMAGE_PLACEHOLDER, PAGINATION } from "~/constants/const";
 import { styles } from "~/constants/styles";
+import { getDateOnly } from "~/utilities/format-date";
+import { useSearchParams } from "react-router-dom";
 
 const WishForm = ({ onClose, selectedWish }: WishFormProps) => {
   const isEditMode = Boolean(selectedWish);
+  const [searchParams] = useSearchParams();
+
+  const dateFilter = searchParams.get("date") || DEFAULT_FILTERS.date;
+  const priceFilter = searchParams.get("price") || DEFAULT_FILTERS.price;
+  const currentPage = Number(searchParams.get("page")) || PAGINATION.defaultPage;
   const [formData, setFormData] = useState({
-    imageUrl: '',
-    title: '',
-    description: '',
-    price: 0
+    imageUrl: selectedWish?.imageUrl || '',
+    title: selectedWish?.title || '',
+    description: selectedWish?.description || '',
+    price: selectedWish?.price || 0,
   });
 
   const { loading, addWish, updateWish } = useAppContext();
-
-  useEffect(() => {
-    if (selectedWish) {
-      setFormData({
-        imageUrl: selectedWish.imageUrl || '',
-        title: selectedWish.title || '',
-        description: selectedWish.description || '',
-        price: selectedWish.price || 0
-      })
-    }
-  }, [selectedWish]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target; 
@@ -40,19 +36,25 @@ const WishForm = ({ onClose, selectedWish }: WishFormProps) => {
     if (isEditMode && selectedWish) {
       await updateWish(selectedWish.id, {
         ...formData,
-        lastUpdated: new Date(),
+        lastUpdated: getDateOnly(),
       });
     } else {
-      await addWish({ ...formData, dateAdded: new Date() });
+      await addWish(
+        { ...formData, dateAdded: getDateOnly() },
+        dateFilter,
+        priceFilter,
+        currentPage
+      );
     }
-    
     onClose();
   }
 
   return (
     <div className="relative z-10">
       <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
-        <div className={`${styles.card} shadow-lg p-6 w-full max-w-4xl`}>
+        <div
+          className={`${styles.card} shadow-lg p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto`}
+        >
           <h2 className={`text-2xl mb-4 text-center ${styles.header}`}>
             {isEditMode ? "Edit Wish" : "Add New Wish"}
           </h2>
@@ -61,7 +63,7 @@ const WishForm = ({ onClose, selectedWish }: WishFormProps) => {
               <img
                 src={formData.imageUrl || IMAGE_PLACEHOLDER}
                 alt="Preview"
-                className="w-auto h-auto object-contain rounded-lg shadow-lg"
+                className="w-auto h-auto object-cover aspect-square rounded-lg shadow-lg"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = IMAGE_PLACEHOLDER;
                 }}

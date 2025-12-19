@@ -52,9 +52,10 @@ const ActionButtons = ({
       )}
 
       {isDeleteModalOpen && (
-        <DeleteWishForm selectedWish={wish} 
-        onAfterDelete={onAfterDelete} 
-        onClose={() => setIsDeleteModalOpen(false)} />
+        <DeleteWishForm
+          selectedWish={wish} 
+          onAfterDelete={onAfterDelete} 
+          onClose={() => setIsDeleteModalOpen(false)} />
       )}
     </>
   );
